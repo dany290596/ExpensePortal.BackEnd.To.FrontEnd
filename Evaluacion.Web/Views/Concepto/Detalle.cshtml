@@ -1,0 +1,62 @@
+﻿@model Evaluacion.Services.Responses.ApiResponse<List<Evaluacion.Models.Response.Gastos.ProcedimientoDTO>>
+@{
+    ViewData["Title"] = "Conceptos";
+}
+
+<div class="row row-height" style="margin-bottom: 13px;">
+    <div class="col-md-12">
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-subtitle mb-2" style="font-size: 20px; color: #198754"><i class="fa fa-wrench"></i>   Comprobantes</h1>
+                    <hr style="margin:0;" />
+
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header bg-transparent"><a href="@Url.Action("Index", "Concepto", null)" class="btn btn-success btn-sm">Consultar</a></div>
+                            <div class="card-body">
+                                <div class="table-responsive-sm">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr class="trHead">
+                                                <th>Concepto</th>
+                                                <th>Domingo</th>
+                                                <th>Lunes</th>
+                                                <th>Martes</th>
+                                                <th>Miercoles</th>
+                                                <th>Jueves</th>
+                                                <th>Viernes</th>
+                                                <th>Sabado</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.Data)
+                                            {
+                                                <tr style="margin: 0px;">
+                                                    <td>@Html.DisplayFor(x => item.Concepto)</td>
+                                                    <td>@Html.DisplayFor(x => item.Domingo)</td>
+                                                    <td>@Html.DisplayFor(x => item.Lunes)</td>
+                                                    <td>@Html.DisplayFor(x => item.Martes)</td>
+                                                    <td>@Html.DisplayFor(x => item.Miercoles)</td>
+                                                    <td>@Html.DisplayFor(x => item.Jueves)</td>
+                                                    <td>@Html.DisplayFor(x => item.Viernes)</td>
+                                                    <td>@Html.DisplayFor(x => item.Sabado)</td>
+                                                    <td>@Html.DisplayFor(x => item.Total)</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">@DateTime.Now - Portal de gastos - Comprobantes </small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

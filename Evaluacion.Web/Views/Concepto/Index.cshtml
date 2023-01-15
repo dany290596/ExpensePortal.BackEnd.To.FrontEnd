@@ -1,0 +1,51 @@
+﻿@model Evaluacion.Models.Request.Gastos.ProcedimientoDTO
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="row row-height" style="margin-bottom: 13px;">
+    <div class="col-md-12">
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-subtitle mb-2" style="font-size: 20px; color: #198754"><i class="fa fa-wrench"></i>   Portal de gastos</h1>
+                    <hr style="margin:0;" />
+                    <form action="/Concepto/Detalle" method="post" class="ConceptoForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="control-label">Folio</label>
+                                @Html.TextBoxFor(m => m.Folio, new { @class = "form-control", @id="", maxlength = "50", placeholder="Ingresa el folio ", required = "required" })
+                                <div class="invalid-feedback">
+                                    El campo (Folio) es requerido.
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="d-grid gap-2">
+                                    <input type="submit" class="btn btn-success" value="Consultar">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var forms = document.getElementsByClassName('ConceptoForm');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+
+        }, false);
+    });
+</script>
